@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Jquery Lean Slide Demo</title>
+	<meta charset="UTF-8" />
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+	<script type="text/javascript" src="jquery_lean_slide_min.js"></script>
+	<script type="text/javascript">
+
+		$(document).ready(function() {
+
+			// básico
+			$('ul').leanslide();
+
+			// divs anidados con imágenes y controles personalizados
+			$('#catz').leanslide({
+				'id_anterior'  : 'catz_ant',
+				'id_siguiente' : 'catz_sig'
+			});
+
+			// uso de callback
+			$('#cheezburger').leanslide({
+				'id_anterior'  : 'cheezburger_ant',
+				'id_siguiente' : 'cheezburger_sig',
+				'callback'		 : function(obj) {
+						$('#cheezburger_tit').html($(obj).children('img').attr('tittle'));
+					}
+			});
+
+		});
+
+	</script>
+</head>
+<body>
+
+	<a href="#" id="slide_ant">anterior</a> | <a href="#" id="slide_sig">siguiente</a>
+
+	<ul style="margin: 10px; height: 20px;">
+		<li>uno</li>
+		<li>dos</li>
+		<li>cuarenta y dos</li>
+	</ul>
+
+	<a href="#" id="catz_ant">anterior</a> |	<a href="#" id="catz_sig">siguiente</a>
+
+	<div id="catz" style="margin: 10px; height: 310px;">
+		<div><img src="http://placekitten.com/300/300" /></div>
+		<div><img src="http://placekitten.com/600/300" /></div>
+		<div><img src="http://placekitten.com/400/300" /></div>
+		<div><img src="http://placekitten.com/300/200" /></div>
+	</div>
+
+	<a href="#" id="cheezburger_ant">anterior</a> |	<a href="#" id="cheezburger_sig">siguiente</a>
+
+	<span id="cheezburger_tit"></span>
+
+	<div id="cheezburger" style="margin: 10px;">
+		<div><img src="http://placekitten.com/500/400" tittle="I Can Has Cheezburger?" /></div>
+		<div><img src="http://placekitten.com/510/400" tittle="Lemme Chex Mah Mailz" /></div>
+		<div><img src="http://placekitten.com/520/400" tittle="Oh Hai" /></div>
+		<div><img src="http://placekitten.com/530/400" tittle="Leeeeeeeroy!!!!1" /></div>
+	</div>
+
+</body>
+</html>
